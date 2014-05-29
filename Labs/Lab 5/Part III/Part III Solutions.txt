@@ -1,0 +1,22 @@
+Part III : Consider banking software with classes Account and AccountOperations. What are the pre/post conditions of the operations of these two class?
+
+Class Account: 
+================================================
+
+getBalance() : returns the balance of the account (a real number)
+
+setBalance(real b) : sets the balance of the acocunt to the value of the parameter.
+
+getCustomerName() : returns the name (string) of the owner of the account.
+
+
+
+
+Class AccountOperations: 
+================================================
+
+withdraw(Account acc, Real am) : withdraws amount am from acconut acc.
+
+balance(Account acc) : returns the balance of the account acc.
+
+transfer(Account from, Actount to, Real am) : 

@@ -29,7 +29,7 @@ Specify the preconditions and postconditions of these operations.
 - isIn(x)
 
 	Pre: 
-		- The Set is not empty
+		- N/A
 
 	Post: 		
 		- The number of elements in the Set does not increase of decrease
