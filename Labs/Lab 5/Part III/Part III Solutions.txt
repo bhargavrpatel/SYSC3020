@@ -72,11 +72,12 @@ the second account, providing that the two accounts have the same owner.
 		- Both accounts from and too must be in good standing
 		- form.getBalance()-am >= 0
 		- Real am must be a positive real number
+		- Account from and too must belong to the same owner (from.getCustomerName() == to.getCustomerName())
 
 	Post: 		
 		- The balance from 'from' account must be decreased by amount am.
-		- The balance from 'to' account must be increasec by amount am.
-		- The standing of the account is not changed
+		- The balance from 'to' account must be increased by amount am.
+		- The standing of the accounts is not changed
 
 deposit(Account acc, Real am) : deposits amount am to account acc. 
 

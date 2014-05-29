@@ -25,6 +25,7 @@ Specify the preconditions and postconditions of these operations.
 		- The Set is not full
 		- Assuming the Set was full, now the Set has one less item than the max.
 		- Assumming the number of objects in the Set was one, the Set is now empty.
+		- element x does not exist in the Set.
 
 - isIn(x)
 
@@ -32,4 +33,5 @@ Specify the preconditions and postconditions of these operations.
 		- N/A
 
 	Post: 		
+		- An approrpiate boolean value has been returned.
 		- The number of elements in the Set does not increase of decrease
