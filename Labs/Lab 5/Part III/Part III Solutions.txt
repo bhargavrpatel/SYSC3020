@@ -5,10 +5,35 @@ Class Account:
 
 getBalance() : returns the balance of the account (a real number)
 
+	Pre: 
+		- Account must exist
+		- Account must be in good standing (i.e: not frozen)
+
+	Post: 		
+		- The balance on the account has not increased nor decreased.
+		- No other values of the account has been changed (such as interests etc)
+
+
 setBalance(real b) : sets the balance of the acocunt to the value of the parameter.
+
+	Pre: 
+		- Account must exist
+		- Account must be in good standing (i.e: not frozen)
+		- b must be a positive real number
+
+	Post: 		
+		- The getBalance() method should return the new balance that has been set.
+		- The standing of the account is not changed (i.e: Not frozen)
 
 getCustomerName() : returns the name (string) of the owner of the account.
 
+	Pre: 
+		- Account Must exist
+
+	Post: 		
+		- The returned string must be of a valid length
+		- The balance on the account has not increased nor decreased.
+		- The standing of the account is not changed (i.e: Not frozen)
 
 
 
@@ -17,6 +42,51 @@ Class AccountOperations:
 
 withdraw(Account acc, Real am) : withdraws amount am from acconut acc.
 
+	Pre: 
+		- Account acc must exist
+		- Account acc must be in good standing (i.e: Not frozen)
+		- Real am must be less than that of getBalance()
+		- Real am must be a valid positive real number
+
+
+	Post: 		
+		- The standing of the account has not changed
+		- The total balance on Account acc is decreased by Real am.
+
 balance(Account acc) : returns the balance of the account acc.
 
-transfer(Account from, Actount to, Real am) : 
+	Pre: 
+		- Account must exist
+		- Account must be in good standing (i.e: not frozen)
+
+	Post: 		
+		- The balance on the account has not increased nor decreased.
+		- No other values of the account has been changed (such as interests rates etc)
+
+
+transfer(Account from, Actount to, Real am) : transfers amount am from the first account to 
+the second account, providing that the two accounts have the same owner. 
+
+	Pre: 
+		- Account from and too must exist 
+		- Both accounts from and too must be in good standing
+		- form.getBalance()-am >= 0
+		- Real am must be a positive real number
+
+	Post: 		
+		- The balance from 'from' account must be decreased by amount am.
+		- The balance from 'to' account must be increasec by amount am.
+		- The standing of the account is not changed
+
+deposit(Account acc, Real am) : deposits amount am to account acc. 
+
+	Pre: 
+		- Account acc must exist.
+		- Account acc must be in good standing (i.e: Not frozen).		
+		- Real am must be a positive real number.
+
+
+	Post: 		
+		- acc.getBalance += amount
+		- The standing of the account has not changed
+
