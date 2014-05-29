@@ -1,0 +1,35 @@
+Part II— a different class 
+Consider class Set, which implements the notion of set (from set theory), with the following operations: 
+Specify the preconditions and postconditions of these operations. 
+(Recall that a set does not have duplicate elements.)
+
+
+- insert(x)
+
+	Pre: 
+		- The Set is not full (even though virtually impossible)
+		- The Set does not already contain object x
+
+	Post: 		
+		- The Set is not empty
+		- Assuming that before the call, Set.size()- maximum = 1, the Set is now full.
+		- Assuming that before the call, Set.size()- maximum > 1, the Set is now partially full.
+
+- remove(x)
+
+	Pre: 
+		- The Set is not empty
+		- The Set contains object x
+
+	Post: 		
+		- The Set is not full
+		- Assuming the Set was full, now the Set has one less item than the max.
+		- Assumming the number of objects in the Set was one, the Set is now empty.
+
+- isIn(x)
+
+	Pre: 
+		- The Set is not empty
+
+	Post: 		
+		- The number of elements in the Set does not increase of decrease
