@@ -1,0 +1,39 @@
+title Group 1 Sequence Diagram
+
+participant User
+User->+TripPlanner: planATrip(answersArray)
+note right of TripPlanner: planATrip will fetch previous answers
+alt answersArray != null
+  loop userActionTaken == false
+    TripPlanner->User: suggestLocations(suggestionsArray)
+  end 
+  User->TripPlanner: selectBasicTripInfo()
+  alt new Questionnaire
+    TripPlanner->TripPlanner: doQuestionnaire()
+  else edit Questionnaire
+    TripPlanner->+TripPlanner: editQuestionnaire()
+    TripPlanner->User: editQuestionnaire()
+  end
+  
+  TripPlanner->+TripPlanner: computeSuggestedLocations(): suggestionsArray
+  TripPlanner-->-TripPlanner: suggestionsArray
+  TripPlanner->+TripPlanner: refreshSuggestions(suggestionsArray)
+  TripPlanner->-User: suggestLocations(suggestionsArray)
+
+
+
+else answersArray == null
+  loop userActionTaken == false
+    TripPlanner->User: promptQuestionnaire()
+  end
+  User->TripPlanner: selectBasicTripInfo()
+  TripPlanner->TripPlanner: doQuestionnaire()
+  TripPlanner->+TripPlanner: computeSuggestedLocations(): suggestionsArray
+  TripPlanner-->-TripPlanner: suggestionsArray
+  TripPlanner->+TripPlanner: refreshSuggestions(suggestionsArray)
+  TripPlanner->-User: suggestLocations(suggestionsArray)
+  
+end
+
+TripPlanner-->-User: answersArray
+note left of User: this answersArray can be used to calculate a GPS coordinate

@@ -1,0 +1,49 @@
+title Group 1 Sequence Diagram
+
+participant User
+participant ":TripPlanner" as planner
+
+User->+planner: planATrip(answersArray)
+
+note right of planner: planATrip will fetch previous answers
+
+User->planner: inputBasicTripInfo()
+---------------------------------------------------------
+alt answersArray == null
+
+	User->+planner: doQuestionnaire()
+	
+	loop show all questions
+		planner->planner: showNextQuestion()
+	end
+	planner-->-User: answersArray	
+	
+	userActionTaken == false
+	
+	planner->+planner: computeGPSlocation(destinationCity, answersArray)
+
+	planner-->-User: GPSlocation	
+		
+---------------------------------------------------------		
+else answersArray != null
+
+------------------------------------------------------
+	planner->+planner: computeGPSlocation(destinationCity, answersArray)
+
+	planner-->-User: GPSlocation
+	opt Modify preferences
+		User->+planner: doQuestionnaire()
+			planner->planner: importUserAnswers()
+			loop show all questions
+				planner->planner: showNextQuestion()
+			end
+			planner-->-User: answersArray
+	planner->+planner: computeGPSlocation(destinationCity, answersArray)
+
+	planner-->-User: GPSlocation
+	end
+	------------------------------------------------------
+
+end
+---------------------------------------------------------
+
