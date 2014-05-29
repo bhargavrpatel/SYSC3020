@@ -1,0 +1,25 @@
+Part I - Continuing with Class Stack
+====================================
+
+Class stack has the following three operations. 
+Specify their preconditions and postconditions. 
+Note some methods may not have precond'ns
+
+
+peek() - simply returns the element at the top of the stack without removing it. 
+
+	Pre: The stack is not empty
+	Post: The number of elements in the stack has not changed.
+
+isEmpty() - returns true if the stack has no element, false otherwise. 
+
+	Pre:  n/a
+	Post: Returns an appropriate boolean if the stack is empty or not. 
+	      The number of elements in the stack has not changed.
+
+isFull() - returns true if the stack contains the maximum number of elements allowed, false 
+otherwise. 
+
+	Pre:  n/a
+	Post: Returns an appropriate boolean if the stack is empty or not.
+	      The number of elements in the stack has not changed.
